@@ -1,0 +1,123 @@
+🎬 MoviesApp
+
+Aplicación móvil Android hecha con Kotlin + Jetpack Compose, basada en la API de TheMovieDB, con cache local, paginación, offline-first, analíticas y arquitectura limpia.
+
+📱 Demo
+
+La app muestra un listado de películas populares, permite ver los detalles de cada una y mantiene los datos en caché para funcionar incluso sin conexión.
+
+🚀 Tecnologías utilizadas
+Capa	Tecnología
+UI	Jetpack Compose, Material 3, Navigation Compose
+Arquitectura	MVVM + Clean Architecture
+Inyección de dependencias	Hilt
+Red	Retrofit + OkHttp + Moshi
+Cache local	Realm Kotlin
+Concurrencia	Kotlin Coroutines + Flow
+Analíticas	Firebase Analytics
+Otras	Compose BOM, Coil para imágenes
+📐 Arquitectura
+
+El proyecto está organizado según Clean Architecture:
+
+app/
+ ├── core/           ← utilidades base (Result, Dispatchers, Analytics)
+ ├── data/           ← API, DAO, Entities, Mappers, Repository impl
+ ├── domain/         ← Modelos, Repositorios, UseCases
+ ├── presentation/   ← ViewModels, Screens (Compose), Navegación
+ ├── di/             ← Módulos de Hilt
+ └── ui.theme/       ← Temas y estilos Compose
+
+✨ Funcionalidades cumplidas (según la prueba solicitada)
+✔ 1. Listado de películas con Jetpack Compose
+
+Obtiene las películas populares desde TMDB.
+
+Renderizado en LazyColumn.
+
+Cada ítem incluye: poster, título, rating, fecha y overview.
+
+✔ 2. Paginación infinita
+
+Carga automática de más resultados al llegar al final de la lista.
+
+Control de estados: cargando siguiente página, fin de lista, etc.
+
+✔ 3. Búsqueda de películas
+
+Barra de búsqueda integrada en el top bar.
+
+Modo búsqueda con icono dinámico.
+
+Filtro local en los datos cargados.
+
+✔ 4. Cache local con Realm Kotlin
+
+Las películas se almacenan automáticamente en Realm.
+
+La app puede iniciar y mostrar datos sin conexión.
+
+✔ 5. Indicador de modo offline
+
+Si la app no puede actualizar desde la red:
+
+isOffline = true
+
+
+Se muestra un mensaje “Mostrando datos sin conexión”.
+
+✔ 6. Refresh manual
+
+Botón de refresh en la toolbar.
+
+Reintentar en estado de error.
+
+Se resetean páginas y estados de carga.
+
+✔ 7. Pantalla de detalle
+
+Muestra información completa de la película seleccionada.
+
+Diseño limpio con Compose.
+
+✔ 8. Analytics de detalle
+
+Cada vez que se abre una película, se envía un evento:
+
+analyticsLogger.logViewMovieDetail(...)
+
+
+Implementación real mediante Firebase Analytics.
+
+✔ 9. Onboarding
+
+Pantalla simple de presentación con almacenamiento del estado usando rememberSaveable.
+
+🔥 Requisitos previos
+
+Necesitas agregar tu API KEY de TMDB en tu local.properties:
+
+TMDB_API_KEY=TU_API_KEY
+
+📦 Instalación
+git clone https://github.com/XxshalomxX/MoviesApp.git
+cd MoviesApp
+
+
+Abrir en Android Studio Giraffe+ y ejecutar.
+
+🧪 Tests
+
+Estructura preparada para agregar pruebas unitarias.
+
+Flow + UseCases permiten testear fácilmente.
+
+🧑‍💻 Autor
+
+Jonathan Medina
+Desarrollador Android
+GitHub: XxshalomxX
+
+📄 Licencia
+
+Proyecto entregado como parte de una prueba técnica.
