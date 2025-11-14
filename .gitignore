@@ -1,0 +1,37 @@
+### Android ###
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+
+# Build outputs
+/build
+/app/build
+*/build
+
+# Capturas y archivos generados
+/captures
+.externalNativeBuild
+.cxx
+
+# Logs
+*.log
+
+# JDK
+.jdk
+
+# Keystores (si existieran)
+/*.jks
+/*.keystore
+
+### Kotlin ###
+*.class
+*.kotlin_metadata
+
+### Firebase ###
+google-services.json
+
+### Misc ###
+*.orig
+*.tmp
