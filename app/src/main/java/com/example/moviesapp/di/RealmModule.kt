@@ -20,7 +20,7 @@ object RealmModule {
         val config = RealmConfiguration.Builder(
             schema = setOf(MovieEntity::class)
         )
-            .deleteRealmIfMigrationNeeded() // opcional para desarrollo
+            .deleteRealmIfMigrationNeeded()
             .build()
         return Realm.open(config)
     }

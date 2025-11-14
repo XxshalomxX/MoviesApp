@@ -38,7 +38,7 @@ object NetworkModule{
     ): OkHttpClient {
         val logging = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
         return OkHttpClient.Builder()
-            .addInterceptor(authQuery)              // <- ¡este faltaba!
+            .addInterceptor(authQuery)
             .addInterceptor(logging)
             .build()
     }
